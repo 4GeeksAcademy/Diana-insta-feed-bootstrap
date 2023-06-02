@@ -1,100 +1,375 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  <title>Instagram Feed</title>
-</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Instagram Feed</title>
+  </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <i class="fa-brands fa-instagram mr-1 text-body"></i>
-        <span class="text-body">Instagram</span>
-      </a>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#navbarNavDropdown">Create a new
-        post</button>
-      <ul>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fa-solid fa-gear"></i>
+  <body>
+
+    <!---Icono Insta--->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <i class="fa-brands fa-instagram mr-1 text-body"></i>
+            <span class="text-body">Instagram</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <a class="dropdown-item text-danger border-top" href="#">Log out</a>
+
+          <!---Botón verde y dropdown--->
+          <ul class="d-flex">
+            <li>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#navbarNavDropdown">Create a
+                new post
+              </button>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-gear"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item text-danger border-top" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+
+      <!---Modal--->
+      <div class="modal fade" id="navbarNavDropdown" tabindex="-1" aria-labelledby="navbarNavDropdown" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Caption</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+                  <div class="d-flex">
+                    <div class="p-2 border mr-2">
+                      <i class="fa-solid fa-camera fa-2x" class="text-body"></i>
+                    </div>
+                    <div class="p-2 border">
+                      <i class="fa-solid fa-location-dot fa-2x" class="text-body"></i>
+                    </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">Publish</button>
+            </div>
           </div>
+        </div>
+      </div>
+    </header>
+
+    <!---ICONOS GRID Y SCROLL--->
+    <main>
+      <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="grid-tab" data-toggle="tab" data-target="#grid" type="button" role="tab"
+            aria-controls="grid" aria-selected="true"><i class="fa-solid fa-table-cells"
+            class="text-body"></i>
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="scroll-tab" data-toggle="tab" data-target="#scroll" type="button" role="tab"
+            aria-controls="scroll" aria-selected="false"><i class="fa-solid fa-square"
+            class="text-body"></i>
+          </button>
         </li>
       </ul>
-    </div>
-    </div>
-  </nav>
 
-  <div class="modal fade" id="navbarNavDropdown" tabindex="-1" aria-labelledby="navbarNavDropdown" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create a new post</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
+      <!---GRID Y SCROLL--->
+      <div class="tab-content" id?="myTabContent">
+        <!---GRID--->
+        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+          <div class="container">
+            <div class="d-flex justify-content-center align-items-center">
+              <ul class="list-inline d-flex mb-0">
 
-            <div class="form-group">
-              <label for="message-text" class="col-form-label">Caption</label>
-              <textarea class="form-control" id="message-text"></textarea>
+                <li class="list-inline-item py-2 px-1">
+                  <div class="card" style="width: 20rem;" class="px-2 py-2">
+                    <img class="card-img-top"
+                      src="https://i.pinimg.com/originals/bd/ab/20/bdab20353f52875a7917af64e669ab92.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item py-2 px-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://www.okchicas.com/wp-content/uploads/2017/01/Gato-se-toma-selfies-5-730x693.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item py-2 px-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="https://d2v7i6t2.map2.ssl.hwcdn.net/content/quotes/5103_500.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+              </ul>
             </div>
-            <div>
-              <i class="fa-solid fa-camera fa-2x" style="color: #000000;" class="p-3"></i>
-              <i class="fa-solid fa-location-dot fa-2x" style="color: #000000;" class="p-10"></i>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <ul class="list-inline d-flex mb-0">
+
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://i.pinimg.com/564x/1a/cc/e8/1acce85e4584ef96fc4a47ccbc7e4917.jpg" alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://preview.redd.it/wxq79d9yb5731.jpg?auto=webp&v=enabled&s=22a7aeef90f7e3158ac72e2bd85955efbc6329bd"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://www.constellation-guide.com/wp-content/uploads/2018/07/Trifid-featured.webp"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+              </ul>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-success">Publish</button>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <ul class="list-inline d-flex mb-2">
+                
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://i.pinimg.com/originals/9e/d1/2f/9ed12feb690f4149ec6f6ce1c6a24582.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://static.boredpanda.com/blog/wp-content/uploads/2016/11/Fell-in-love-with-the-Swedish-nature-5824965447046__880.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+                <li class="list-inline-item px-1 py-1">
+                  <div class="card" style="width: 20rem;">
+                    <img class="card-img-top"
+                      src="https://featuredcreature.com/wp-content/uploads/2015/01/10454162_671622509581052_2052510728_n.jpg"
+                      alt="Card image cap">
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
         </div>
 
+
+        <!---SCROLL--->
+        <div class="tab-pane fade" id="scroll" role="tabpanel" aria-labelledby="scroll-tab">
+
+          <div class="container d-flex justify-content-center align-items-center">
+
+            <ul class="d-box">
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">Speak Now TV!</h5>
+                    <p>12/10</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://i.pinimg.com/originals/bd/ab/20/bdab20353f52875a7917af64e669ab92.jpg"
+                    alt="Speak Now TV!">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">1,345,234 likes</p>
+                    <p class="card-text">Finally, my version is out! Link in bio. I love you all. </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">My amigos</h5>
+                    <p>10/10</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://www.okchicas.com/wp-content/uploads/2017/01/Gato-se-toma-selfies-5-730x693.jpg"
+                    alt="My amigos">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">1,835 likes</p>
+                    <p class="card-text">Honestly, I'm the most handsome in the group.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">theofficequotes</h5>
+                    <p>07/10</p>
+                  </div>
+                  <img class="card-img-top" src="https://d2v7i6t2.map2.ssl.hwcdn.net/content/quotes/5103_500.jpg"
+                    alt="Card image cap" alt="theofficequotes">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">18,061 likes</p>
+                    <p class="card-text">He is not wrong though. Follow @theofficehowfeeds for more! &#10084;</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">theofficequotes</h5>
+                    <p>05/10</p>
+                  </div>
+                  <img class="card-img-top" src="https://i.pinimg.com/564x/1a/cc/e8/1acce85e4584ef96fc4a47ccbc7e4917.jpg"
+                    alt="theofficequotes">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">51,344 likes</p>
+                    <p class="card-text">Wise words by wise man. Follow @theofficehowfeeds for more! &#10084;</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">Cute penguin</h5>
+                    <p>26/09</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://preview.redd.it/wxq79d9yb5731.jpg?auto=webp&v=enabled&s=22a7aeef90f7e3158ac72e2bd85955efbc6329bd"
+                    alt="Cute penguin">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">130 likes</p>
+                    <p class="card-text">Do you love penguins? Like, comment and tag a penguin lover &#128525;</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">Trifid nebula</h5>
+                    <p>22/09</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://www.constellation-guide.com/wp-content/uploads/2018/07/Trifid-featured.webp"
+                    alt="Trifid nebula">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">8,063 likes</p>
+                    <p class="card-text">The central region of the Trifid Nebula (M20). Image: Subaru Telescope (NAOJ),
+                      Hubble Space Telescope, Martin Pugh; Processing: Robert Gendler. Messier 20 is a popular object
+                      among
+                      amateur astronomers because it is quite bright and easily observed in small telescopes. It has a
+                      diameter of 42 light years and lies at a distance of 5,200 light years from Earth.</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">Raccons everywhere</h5>
+                    <p>15/09</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://i.pinimg.com/originals/9e/d1/2f/9ed12feb690f4149ec6f6ce1c6a24582.jpg"
+                    alt="Raccons everywhere">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">533 likes</p>
+                    <p class="card-text">Good morning! Did you already say hello to your local raccon? Follow me for more
+                      relatable raccons &#128524;
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">First snow</h5>
+                    <p>08/09</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://static.boredpanda.com/blog/wp-content/uploads/2016/11/Fell-in-love-with-the-Swedish-nature-5824965447046__880.jpg"
+                    alt="First snow">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">635,287 likes</p>
+                    <p class="card-text">In this shot I wanted the viewer to experience the feeling that I felt standing
+                      by
+                      the road like they could touch the snowflakes. I set the focus at 5 feet and the shutter speed at
+                      1/1000 to bring out the snowflakes &#10024;</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="px-1 py-2 pt-2">
+                <div class="card" style="width: 20rem;" class="px-2 py-2">
+                  <div class="d-flex justify-content-between p-2">
+                    <h5 class="h5">Glass frogs</h5>
+                    <p>01/09</p>
+                  </div>
+                  <img class="card-img-top"
+                    src="https://featuredcreature.com/wp-content/uploads/2015/01/10454162_671622509581052_2052510728_n.jpg"
+                    alt="Glass frogs">
+                  <div class="card-body m-0 p-2">
+                    <p class="h6">72,853 likes</p>
+                    <p class="card-text">The Slope-snouted Glass Frog (Cochranella euknemos) is a species of spotted glass
+                      frog considered rare in both Costa Rica and Panama but common in Colombia. It gets its name from the
+                      extra wisp of white skin that flanks the outlines of its smooth, greenish-blue body. The frog is
+                      able
+                      to almost adhere perfectly to a leaf by pressing its body flat against the surface. The yellow spots
+                      that fleck its tiny body are supposed to look like dots of sunlight streaming onto the
+                      “nothing-out-of-the-ordinary-here” leaf. It almost looks like it's a constellation within the dark
+                      rainforest.</p>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-<!---ICONOS GRID Y SCROLL--->
-  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" id="grid-tab" data-toggle="tab" data-target="#grid" type="button" role="tab"
-        aria-controls="grid" aria-selected="true"><i class="fa-solid fa-table-cells"
-          style="color: #000000;"></i></button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" id="scroll-tab" data-toggle="tab" data-target="#scroll" type="button" role="tab"
-        aria-controls="scroll" aria-selected="false"><i class="fa-solid fa-square" style="color: #06070a;" ></i></button>
-    </li>
-  </ul>
 
-  <!---GRID--->
-  <div class="tab-content" id?="myTabContent">
-    <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">135</div>
-    <div class="tab-pane fade" id="scroll" role="tabpanel" aria-labelledby="scroll-tab">246</div>
-  </div>
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/cede101d40.js" crossorigin="anonymous"></script>
-</body>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cede101d40.js" crossorigin="anonymous"></script>
+  </body>
 
 </html>
